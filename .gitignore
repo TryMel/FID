@@ -1,0 +1,55 @@
+# ═══════════════════════════════════════════════════════════════
+# .gitignore BACKEND — FastAPI / Python
+# IMPORTANT : .env contient des secrets → JAMAIS sur GitHub
+# ═══════════════════════════════════════════════════════════════
+
+# ── SECRETS — NE JAMAIS COMMITTER ───────────────────────────────
+.env
+.env.local
+.env.production
+.env.staging
+.env.*.local
+# Garder l'exemple sans vraies valeurs
+!.env.example
+
+# ── Base de données locale ────────────────────────────────────────
+*.sqlite
+*.sqlite3
+*.db
+database.sqlite
+
+# ── Python ───────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── Tests et couverture ──────────────────────────────────────────
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# ── Outils ───────────────────────────────────────────────────────
+.mypy_cache/
+.ruff_cache/
+.idea/
+.vscode/
+
+# ── Logs ─────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── OS ───────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db

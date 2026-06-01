@@ -1,11 +1,15 @@
 from logging.config import fileConfig
 import sys
 import os
+from dotenv import load_dotenv
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
+
+# Charger les variables d'environnement depuis .env
+load_dotenv()
 
 # Ajouter le répertoire parent au sys.path pour importer les modèles
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
@@ -17,6 +21,9 @@ from app.models import *  # Importer tous les modèles
 # Ceci est l'objet Config Alembic, qui fournit
 # l'accès aux valeurs dans le fichier .ini utilisé.
 config = context.config
+
+# Remplacer l'URL de la base de données par celle du .env
+config.set_main_option("sqlalchemy.url", os.getenv("DATABASE_URL"))
 
 # Interpréter le fichier de configuration pour la journalisation Python.
 # Cette ligne configure les loggers de base.
